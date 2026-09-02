@@ -7,8 +7,8 @@ export default function ContactFooter() {
             <h2 className="text-[12vw] md:text-8xl font-medium tracking-tighter leading-none mb-10">
               LET'S BUILD<br/>SOMETHING.
             </h2>
-            <a href="mailto:hello@example.com" className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">
-              hello@example.com
+            <a href="mailto:avinaba94@gmail.com" className="inline-block px-8 py-4 bg-white text-black rounded-full font-medium text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">
+              avinaba94@gmail.com
             </a>
           </div>
           
@@ -19,7 +19,7 @@ export default function ContactFooter() {
             <div className="flex flex-wrap gap-6 mt-4">
               <a href="#" className="hover:text-white transition-colors">Twitter</a>
               <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-white transition-colors">GitHub</a>
+              <a href="https://github.com/564iay/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
               <a href="#" className="hover:text-white transition-colors">Dribbble</a>
             </div>
           </div>
