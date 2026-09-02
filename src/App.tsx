@@ -22,6 +22,12 @@ function useTypewriter(text: string, speed: number = 38, startDelay: number = 60
         timeout = setTimeout(typeNext, speed);
       } else {
         setDone(true);
+        timeout = setTimeout(() => {
+          setDone(false);
+          setDisplayed('');
+          currentIndex = 0;
+          timeout = setTimeout(typeNext, startDelay);
+        }, 3000);
       }
     };
 
@@ -174,7 +180,7 @@ function ServiceSelector() {
 }
 
 function HeroContent() {
-  const { displayed, done } = useTypewriter("hi, I'm\nAvinaba Biswas");
+  const { displayed, done } = useTypewriter("Hi, I'm\nAvinaba Biswas");
 
   return (
     <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-16 min-h-screen flex flex-col justify-center pointer-events-none">
