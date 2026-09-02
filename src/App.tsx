@@ -7,36 +7,40 @@ import HorizontalGallery from './components/HorizontalGallery';
 import TechStack from './components/TechStack';
 import ContactFooter from './components/ContactFooter';
 
-function useTypewriter(text: string, speed: number = 38, startDelay: number = 600) {
+function useTypewriter(text: string, speed: number = 50, deleteSpeed: number = 30, pauseTime: number = 3000) {
   const [displayed, setDisplayed] = useState('');
-  const [done, setDone] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
-    let currentIndex = 0;
 
-    const typeNext = () => {
-      if (currentIndex < text.length) {
-        setDisplayed(text.substring(0, currentIndex + 1));
-        currentIndex++;
-        timeout = setTimeout(typeNext, speed);
-      } else {
-        setDone(true);
+    if (isDeleting) {
+      if (index > 0) {
         timeout = setTimeout(() => {
-          setDone(false);
-          setDisplayed('');
-          currentIndex = 0;
-          timeout = setTimeout(typeNext, startDelay);
-        }, 3000);
+          setDisplayed(text.substring(0, index - 1));
+          setIndex(index - 1);
+        }, deleteSpeed);
+      } else {
+        setIsDeleting(false);
       }
-    };
-
-    timeout = setTimeout(typeNext, startDelay);
+    } else {
+      if (index < text.length) {
+        timeout = setTimeout(() => {
+          setDisplayed(text.substring(0, index + 1));
+          setIndex(index + 1);
+        }, speed);
+      } else {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, pauseTime);
+      }
+    }
 
     return () => clearTimeout(timeout);
-  }, [text, speed, startDelay]);
+  }, [index, isDeleting, text, speed, deleteSpeed, pauseTime]);
 
-  return { displayed, done };
+  return { displayed };
 }
 
 function Header() {
@@ -180,7 +184,7 @@ function ServiceSelector() {
 }
 
 function HeroContent() {
-  const { displayed, done } = useTypewriter("Hi, I'm\nAvinaba Biswas");
+  const { displayed } = useTypewriter("Hi, I'm\nAvinaba Biswas");
 
   return (
     <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-16 min-h-screen flex flex-col justify-center pointer-events-none">
@@ -188,7 +192,7 @@ function HeroContent() {
         <div>
           <h1 className="text-[50px] leading-[1.08] lg:text-[76px] font-normal tracking-tight text-black whitespace-pre-wrap">
             {displayed}
-            {!done && <span className="inline-block w-[2px] h-[0.8em] bg-black align-baseline ml-1 animate-pulse" />}
+            <span className="inline-block w-[2px] h-[0.8em] bg-black align-baseline ml-1 animate-pulse" />
           </h1>
           <p className="mt-6 text-[18px] lg:text-[21px] text-[#5A635A] max-w-md leading-relaxed whitespace-pre-wrap">
             {"I'm a developer specializing in building modern, interactive web experiences."}
