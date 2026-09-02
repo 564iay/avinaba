@@ -48,7 +48,7 @@ function Header() {
         <nav className="hidden md:flex items-center gap-1 text-[23px] font-normal text-black/90">
           <a href="#work" className="hover:opacity-60 transition-opacity">Work</a>,
           <a href="#about" className="hover:opacity-60 transition-opacity">About</a>,
-          <a href="#contact" className="hover:opacity-60 transition-opacity">Contact</a>
+          <a href="#contact-footer" className="hover:opacity-60 transition-opacity">Contact</a>
         </nav>
 
         {/* Right */}
@@ -79,8 +79,8 @@ function Header() {
           >
             <a href="#work" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium">Work</a>
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium">About</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium">Contact</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium underline mt-4">Get in touch</a>
+            <a href="#contact-footer" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium">Contact</a>
+            <a href="#contact-footer" onClick={() => setMobileMenuOpen(false)} className="text-3xl font-medium underline mt-4">Get in touch</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -177,7 +177,7 @@ function HeroContent() {
   const { displayed, done } = useTypewriter("hi, I'm\nAvinaba Biswas");
 
   return (
-    <div id="contact" className="w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-16 min-h-screen flex flex-col justify-center pointer-events-none">
+    <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-16 min-h-screen flex flex-col justify-center pointer-events-none">
       <div className="lg:w-[55%] flex flex-col gap-8 pointer-events-auto mt-8 lg:mt-0">
         <div>
           <h1 className="text-[50px] leading-[1.08] lg:text-[76px] font-normal tracking-tight text-black whitespace-pre-wrap">
