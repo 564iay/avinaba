@@ -162,9 +162,9 @@ function ServiceSelector() {
               <p className="text-[15px] text-[#1C2E1E] font-medium leading-snug max-w-[250px]">
                 Let's talk about: <span className="text-[#5A635A] font-normal">{selected.join(", ")}</span>
               </p>
-              <button className="whitespace-nowrap px-6 py-2.5 bg-[#1C2E1E] text-white rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+              <a href="#contact-footer" className="whitespace-nowrap px-6 py-2.5 bg-[#1C2E1E] text-white rounded-full text-sm font-medium hover:opacity-90 transition-opacity block text-center mt-2 sm:mt-0">
                 Contact Me
-              </button>
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
