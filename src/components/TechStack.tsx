@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const techStack = [
-  "React", "TypeScript", "Tailwind CSS", "Next.js", "Node.js", "Framer Motion", "Three.js", "WebGL", "GraphQL", "Figma"
+  "React", "TypeScript", "Tailwind CSS", "Next.js", "Node.js", "Framer Motion", "Three.js", "WebGL", "GraphQL", "Figma", "Python", "C++", "Kotlin", "Java", "AI Agents"
 ];
 
 // Duplicate the array a few times so the marquee loops seamlessly

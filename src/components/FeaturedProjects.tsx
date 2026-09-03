@@ -29,7 +29,7 @@ const projects = [
     title: "Restaurant Demo",
     category: "Web Design",
     image: "https://s0.wp.com/mshots/v1/https://demoresrurant-webpage1523.vercel.app?w=1200&h=800",
-    link: "https://demoresrurant-webpage1523.vercel.app"
+    link: "https://chakhordemo2.vercel.app"
   }
 ];
 

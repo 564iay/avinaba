@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 
 const experiences = [
-  { year: "2024", role: "Senior Creative Developer", company: "Studio X", description: "Leading 3D web experiences using React Three Fiber and GSAP." },
-  { year: "2022", role: "Frontend Engineer", company: "TechFlow", description: "Built immersive landing pages and optimized web performance." },
-  { year: "2020", role: "UI/UX Designer", company: "Freelance", description: "Designed brand identities and user interfaces for startups." }
+  { year: "2011", role: "Born in this World", company: "Iswarchandrapur, Nadia", description: "Kept exploring the world. In 2022 first indroduced to the wrold of programming." },
+  { year: "2024", role: "Web Developer", company: "AVN Devs", description: "Built immersive landing pages and optimized web performance." },
+  { year: "2026", role: "Web and Android App Developer", company: "Freelance", description: "Designed brand identities and user interfaces for startups. Currently working on an app." }
 ];
 
 function TimelineNode({ item, index }: { item: typeof experiences[0], index: number }) {
