@@ -206,89 +206,6 @@ function HeroContent() {
 }
 
 export default function App() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    let isSeeking = false;
-    let targetTime = 0;
-    let previousX: number | null = null;
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
-    const setVideoState = () => {
-      if (mediaQuery.matches) {
-        video.pause();
-        return;
-      }
-      if (window.innerWidth < 1024) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (window.innerWidth < 1024 || mediaQuery.matches) return;
-      if (!video.duration || Number.isNaN(video.duration)) return;
-
-      if (previousX === null) {
-        previousX = e.clientX;
-        targetTime = video.currentTime;
-        return;
-      }
-
-      const delta = e.clientX - previousX;
-      previousX = e.clientX;
-      
-      const duration = video.duration;
-      const scrubAmount = (delta / window.innerWidth) * 0.8 * duration;
-      
-      targetTime = Math.max(0, Math.min(duration, targetTime + scrubAmount));
-
-      if (!isSeeking) {
-        isSeeking = true;
-        video.currentTime = targetTime;
-      }
-    };
-
-    const handleSeeked = () => {
-      if (window.innerWidth < 1024 || mediaQuery.matches) {
-        isSeeking = false;
-        return;
-      }
-      if (Math.abs(video.currentTime - targetTime) > 0.05) {
-        video.currentTime = targetTime;
-      } else {
-        isSeeking = false;
-      }
-    };
-
-    // Need to handle video loadedmetadata to make sure duration is available
-    const handleLoadedMetadata = () => {
-      setVideoState();
-    };
-
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
-    video.addEventListener('seeked', handleSeeked);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', setVideoState);
-    mediaQuery.addEventListener('change', setVideoState);
-    
-    // Initial call in case metadata is already loaded
-    if (video.readyState >= 1) {
-      setVideoState();
-    }
-
-    return () => {
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      video.removeEventListener('seeked', handleSeeked);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', setVideoState);
-      mediaQuery.removeEventListener('change', setVideoState);
-    };
-  }, []);
 
   return (
     <main className="relative bg-pink-50 text-neutral-900 font-sans selection:bg-[#EAECE9] selection:text-[#1C2E1E] antialiased overflow-x-clip flex flex-col lg:block min-h-screen">
@@ -300,14 +217,10 @@ export default function App() {
       */}
       
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none w-full h-full bg-pink-50 lg:bg-transparent">
-        <video
-          ref={videoRef}
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260601_110537_3a579fa0-7bbc-4d94-9d25-0e816c7840f5.mp4"
+        <img
+          src="/cyber-bg.jpg"
+          alt="Cybernetic Developer"
           className="w-full h-full object-cover object-right lg:object-right-bottom"
-          muted
-          playsInline
-          loop
-          preload="auto"
         />
       </div>
 
