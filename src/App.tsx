@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, Menu, X } from 'lucide-react';
 import FeaturedProjects from './components/FeaturedProjects';
